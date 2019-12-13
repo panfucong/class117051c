@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- heart是组建的一个属性，那么组建必须通过props生命资格属性 -->
+        <!--  -->
+        
+        <guolele v-bind:heart="article"></guolele>
+    </div>
+    <script>
+        //定义guolele资格自定义组建
+        //第一个参数三子定义组建的名称,第二参数三定义该组件的运行规则对象 
+        Vue.component('guolele',{
+            props:['heart'],
+        //template中定义的三组建的模板,也就三html和插值{{}}以及vue指令的组合
+        //template必须要有根标签 例如 <h1><h2>不合法
+            template:'<div>'+
+            '<h1 style>{{heart.title}}</h1>'+
+            '<h2>作者:{{heart.author}}</h2>'+
+            '<h3>时间：{{heart.publishDate}}</h3>'+
+            '<p> {{heart.content}}</p>'+
+            '</div>'
+        });
+  
+            
+        var app=new Vue({
+            el:"#app",
+            data:{
+                articleList:[
+                {
+                    title:"qiao",
+                    author:"guo",
+                    publishDate:"",
+                    content:" 根据我多年的开车经验，我断定乔女士和我差不多，也就20岁并且乔女士和我心意。",
+                    imgSrc:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576245229154&di=d7f26939314931f29d9feb23848a5fd5&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fd848cbc5234a190f3a491c1949df7dbc8a815ed01b311-AEPUvm_fw658"
+                },
+                {
+                    title:"vuedechuxuebiji",
+                    author:"guolele",
+                    publishDate:"",
+                    content:" 根据我多年的开车经验，我断定乔女士和我差不多，也就20岁并且乔女士和我心意。",
+                    imgSrc:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576245229154&di=d7f26939314931f29d9feb23848a5fd5&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fd848cbc5234a190f3a491c1949df7dbc8a815ed01b311-AEPUvm_fw658"
+                }]
+            }
+        })
+    </script>
+</body>
+</html>
